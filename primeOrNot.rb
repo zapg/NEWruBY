@@ -1,3 +1,4 @@
+# coding = GBK
 
 num = ARGV[0].to_i 
 two = 2
