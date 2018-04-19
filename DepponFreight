@@ -1,0 +1,38 @@
+# encoding: GBK
+
+weight = 14.55
+cbm = 0.6 * 0.45 * 0.25
+ctn = ARGV[0].to_i
+value = 0.17
+num = 1020 * 4
+
+zongzhongliang = weight * ctn
+zongtiji = cbm * ctn
+
+zhongliangqian = zongzhongliang * 1.04
+tijiqian = zongtiji * 218.4
+
+if zhongliangqian > tijiqian
+  freight = zhongliangqian
+else
+  freight = tijiqian
+end
+
+warehouse = 0.2 * zhongliangqian
+if warehouse > 500
+  warehouse = 500
+end
+if warehouse < 55
+  warehouse = 55
+end
+
+huokuan = value * num
+insurance = huokuan * ctn * 0.006
+insurancePerCtn = huokuan * 0.006
+
+total = freight + warehouse + insurance
+truetotal = format("%.2f", total.to_f/3)
+average = total / zongtiji
+trueaverage = format("%.2f", average.to_f/3)
+
+puts "#{ctn}箱的总运费是#{truetotal}元。核每立方米#{trueaverage}元。"
