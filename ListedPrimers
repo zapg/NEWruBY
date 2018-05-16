@@ -1,0 +1,19 @@
+a = 2
+two = 2
+shut = ARGV[0].to_i
+
+while a < shut
+while two < a
+  if a % two != 0
+    two = two + 1
+  else
+    a = a + 1
+    two = 2
+  end
+end
+
+puts a
+two = 2
+a = a + 1
+
+end
