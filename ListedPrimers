@@ -6,6 +6,8 @@ while a < shut
 while two < a
   if a % two != 0
     two = two + 1
+  elsif a >= shut
+    return
   else
     a = a + 1
     two = 2
