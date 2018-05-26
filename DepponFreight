@@ -1,4 +1,4 @@
-# encoding: GBK
+# encoding: utf-8
 
 puts "请输入箱数"
 ctn = gets.to_i
