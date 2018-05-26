@@ -8,22 +8,23 @@ value = 0.17
 num = 1020 * 4
 
 zongzhongliang = weight * ctn
+# 总重量
 zongtiji = cbm * ctn
+# 总体积
 
-zhongliangqian = zongzhongliang * 
-
-1.04
+zhongliangqian = zongzhongliang * 1.04
+# 按重量收费
 tijiqian = zongtiji * 218.4
+# 按体积收费
 
 if zhongliangqian > tijiqian
   freight = zhongliangqian
 else
   freight = tijiqian
 end
+# 哪个收费高按哪个算
 
-truefreight = format("%.2f", 
-
-freight.to_f/3)
+truefreight = format("%.2f", freight.to_f/3)  # 小数点后进到一位
 
 warehouse = 0.2 * zhongliangqian
 if warehouse > 500
@@ -32,32 +33,25 @@ end
 if warehouse < 55
   warehouse = 55
 end
-truewarehouse = format("%.2f", 
+# 仓库保管费用
 
-warehouse.to_f/3)
+truewarehouse = format("%.2f", warehouse.to_f/3)  # 小数点后进到一位
 
 huokuan = value * num
 insurance = huokuan * ctn * 0.006
 insurancePerCtn = huokuan * 0.006
-trueinsurance = format("%.2f", 
+trueinsurance = format("%.2f", insurance.to_f/3)
+# 保险费用
 
-insurance.to_f/3)
+total = freight + warehouse + insurance
+truetotal = format("%.2f", total.to_f/3)
+# 总费用
 
-total = freight + warehouse + 
-
-insurance
-truetotal = format("%.2f", 
-
-total.to_f/3)
 average = total / zongtiji
-trueaverage = format("%.2f", 
+trueaverage = format("%.2f", average.to_f/3)
+# 平均费用
 
-average.to_f/3)
-
-
-puts "#{ctn}箱的总运费是#{truetotal}
-
-元
+puts "#{ctn}箱的总运费是#{truetotal}元
 （核每立方米#{trueaverage}元）
 其中运费#{truefreight}元
 保险#{trueinsurance}元
