@@ -1,0 +1,9 @@
+# coding: utf-8
+
+puts "请输入数字"
+
+a = gets.to_i
+
+result = (a>=10) ? "a大于等于10" : "a小于10"
+
+puts result
