@@ -1,0 +1,16 @@
+#coding: utf-8
+
+a = 1
+num = 1
+while a <= 2016
+  num = a * num
+  a = a + 1
+end
+puts "阶乘结果为#{num}"
+
+zeroes = 0
+while num % 10 == 0
+  zeroes = zeroes + 1
+  num = num / 10
+end
+puts "共有#{zeroes}个零"
