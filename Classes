@@ -1,0 +1,16 @@
+a = BasicObject.new
+b = Object.new
+c = Array.new
+d = String.new
+e = Hash.new
+j = Numeric.new
+q = Exception.new
+r = Time.new
+
+puts b
+puts c
+puts d
+puts e
+puts j
+puts q
+puts r
