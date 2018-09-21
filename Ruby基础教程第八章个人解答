@@ -1,0 +1,53 @@
+#第一题
+
+def cels2fahr(cels)
+  fahr = cels *9 /5 + 32.0
+end
+
+#第二题
+
+def fahr2cels(fahr)
+  cels = (fahr - 32) * 5 / 9.0
+end
+
+fahr = 1
+while fahr != 101
+  puts "#{fahr}, #{fahr2cels(fahr)}"
+  fahr +=1
+end
+
+#第三题
+
+def dice
+  Random.rand(6) + 1
+end
+
+#第四题
+
+def dice10
+  sum = 0
+	10.times do
+  	dice = Random.rand(6) + 1
+	  sum = sum + dice
+	end
+	sum
+end
+
+#第五题
+
+def prime?(num)
+  if num <2
+	  return false
+	else
+	  n = 2
+		while n != num
+		  if num % n == 0
+			  return false
+			else
+			  n += 1
+			end
+		end
+	end
+	return true
+end
+
