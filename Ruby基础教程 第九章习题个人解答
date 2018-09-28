@@ -1,0 +1,112 @@
+# 第一题
+
+a1 = Array.new
+
+n = 0
+while n < 100
+  n = n + 1
+	a1 << n
+end
+
+a0 = a1
+
+
+
+# 第二题
+
+a = a0
+i = 0
+a2 = [] 
+while i < a.length
+  a2 << a[i] * 100
+	i = i + 1
+end
+
+#或
+
+a = a0
+
+a2 = a.collect{|item| item * 100}
+a.collect{|item| item * 100}
+
+
+
+# 第三题
+
+a = a0
+
+a3 = a.reject{|not3| not3 % 3 != 0}
+a.reject{|not3| not3 % 3 != 0}
+
+
+
+# 第四题
+
+a = a0
+a = a.reverse
+
+# 或
+
+a = a0
+a4 = Array.new
+
+(a.length).times do
+  a4 << a.pop
+end
+
+# 后面那几行代码后，a0的值也变为0了，不明白为什么，所以在后面题之前只能加上句：
+
+
+
+a0 = a4.reverse!
+
+
+
+# 第五题,不好理解，已大改
+
+a = a0
+sum = 0
+a.each do |elem|
+  sum += elem
+end
+p sum
+
+# 或
+
+a = a0
+p a
+sum = 0
+i = 0
+(a.length).times do
+  sum += a[i]
+	i += 1
+end
+
+p sum
+
+
+
+# 第六题，未解出来，是只在[]里填内容吗？
+
+# ary = a0
+# result = Array.new
+# 10.times do |i|
+#   result << ary[]
+# end
+
+
+
+# 第七题
+
+def sum_array(nums1, nums2)
+  result = []
+	i = 0
+	n =	(nums1.length > nums2.length) ? nums1.length : nums2.length	#多余的
+	while i < n
+	  result << nums1[i] + nums2[i]
+		i += 1
+	end
+	return result
+end
+
+p sum_array([1, 2, 3], [4, 6, 8])
