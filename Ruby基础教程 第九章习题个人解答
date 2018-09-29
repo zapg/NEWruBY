@@ -110,3 +110,44 @@ def sum_array(nums1, nums2)
 end
 
 p sum_array([1, 2, 3], [4, 6, 8])
+
+
+
+
+
+
+# 以下是没接触控制台之前光看书写的代码……居然全正常
+# 第一题
+
+b = 1..100
+a = b.collect{|i|i}
+
+# 或
+
+a = Array.new(100){|i| i + 1}
+
+p a
+
+# 第二题
+a = (1..100).collect(|i| i}
+
+a2 = a.collect{|i| i * 100}
+p a2
+
+# 第三题
+a = (1..100).collect(|i| i}
+
+a3 = a.reject{|i| i % 3 != 0}
+a.delete_if{|i| i % 3!= 0}
+
+# 第四题
+
+a = (1..100).collect(|i| i}
+a.reverse!
+
+# 第五题
+a = (1..100).collect(|i| i}
+sum = 0
+a.each do |elem|
+  sum += elem
+end
