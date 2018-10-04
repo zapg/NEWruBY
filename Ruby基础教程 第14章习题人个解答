@@ -1,0 +1,124 @@
+ruby = "Ruby is an object oriented programming language"
+p ruby
+
+# 第一题
+word1 = ruby.split
+p word1
+
+# 第二题
+word2 = word1.sort
+p word2
+
+# 第三题 未解出来
+word3 = []
+word2.each{|dc| word3 << dc.downcase}
+word3.sort!
+p word3
+
+# 第四题
+word4 = ""
+ruby.split.each {|cap| word4 << cap.capitalize + " "}
+word4.strip!
+p word4
+
+# 第五题 我跪了
+#p ruby.each_byte.sort
+
+# 第六题 开始看错题了，弄了个半成品。
+
+# def danzi (num)
+#   return "一" if num == 1
+#   return "二" if num == 2
+#   return "三" if num == 3
+#   return "四" if num == 4
+#   return "五" if num == 5
+#   return "六" if num == 6
+#   return "七" if num == 7
+#   return "八" if num == 8
+#   return "九" if num == 9
+#   return "零" if num == 0
+# end
+# p danzi(2)
+# 
+# def num2han(num)
+#   qian = (num >= 1000)? (num / 1000):("")
+#   p "#{danzi(qian)}千"
+# end
+
+
+#已废案。有些特例，比如“一百零一”“三千六”等无法实现
+
+#  def danzi (han)
+#    return "1" if han == "一"
+#    return "2" if han == "二"
+#    return "3" if han == "三"
+#    return "4" if han == "四"
+#    return "5" if han == "五"
+#    return "6" if han == "六"
+#    return "7" if han == "七"
+#    return "8" if han == "八"
+#    return "9" if han == "九"
+#    return "0"
+#  end
+#  
+#  def han2num(han)
+#    p qian = (han.include?("千")) ? danzi(han.split(/千/)[0]||"0") : "0"
+#    p temp = (han.include?("千")) ? han.split(/千/)[1]||"0" : han
+#    p bai = (temp.include?("百"))? danzi(temp.split(/百/)[0]||"0") : "0"
+#    p temp = (temp.include?("百")) ? han.split(/百/)[1]||"0" : temp
+#    p shi = (temp.include?("十"))? danzi(temp.split(/十/)[0]||"0") : "0"
+#    p temp = (temp.include?("十")) ? danzi(han.split(/十/)[1]||"0") : danzi(temp)
+#    p ge = temp || "0"
+#    p result = [qian, bai, shi, ge]
+#    p num = result[0].to_i * 1000 + result[1].to_i * 100 + result[2].to_i * 10 + result[3].to_i
+#  end
+
+# 下面是正常解答答案
+
+def danzi(han)
+  return "1" if han == "一"
+  return "2" if han == "二"
+  return "3" if han == "三"
+  return "4" if han == "四"
+  return "5" if han == "五"
+  return "6" if han == "六"
+  return "7" if han == "七"
+  return "8" if han == "八"
+  return "9" if han == "九"
+  return "0"
+end
+
+
+def han2num(han)
+  han.delete!("零")	#类似“七千零二十”“五百零七”这种数，零不存在也可以。以上假定排除了“二百五”“四千三”这类非正规说法
+  num = [0, 0, 0, 0]
+  temp = han
+  
+  if han.include?("千")
+    num[0] = danzi(han.split(/千/)[0]).to_i
+    temp = temp.split(/千/)[1] 
+  end
+    
+  if han.include?("百")
+    num[1] = danzi(temp.split(/百/)[0]).to_i
+    temp = temp.split(/百/)[1]
+  end
+
+  if han.include?("十")
+    if temp.split(/十/)[0] == ""	# 十位的情况特殊，比如“十七”
+      num[2] = 1
+	else
+	  num[2] = danzi(temp.split(/十/)[0]).to_i
+	end
+	temp = temp.split(/十/)[1]
+  end
+  
+  if temp
+    num[3] = danzi(temp).to_i
+  end
+ 
+  p num[0]*1000 + num[1]*100 + num[2]*10 + num[3]*1
+  
+end
+
+han2num("四千零四十三")
