@@ -1,0 +1,54 @@
+#coding=utf-8
+#然而并没有什么用
+
+# 题目1
+
+wday = {sunday:"星期天", monday:"星期一", tuesday:"星期二", wedsday:"星期三", thursday:"星期四", friday:"星期五", saturday:"星期六"}
+p wday[:sunday]
+p wday[:monday]
+p wday[:saturday]
+
+#题目2
+
+count = {total: 0}
+
+wday.each {|word| count[:total] += 1}
+p count
+
+#题目3
+
+wday.each do |key, value|
+  p "#{key}是#{value}。"
+end
+
+#题目4
+
+def str2hash(str)
+  str.tr!("\n", " ")
+  str.tr!("\t", " ")
+  str.tr!("  ", " ")
+  #格式转换完毕，制表符和换行符全都变成了空格
+  
+  arr = str.split
+  #转为数组
+  
+  temp = []	#临时数组
+  n = 0
+  while n < arr.length
+    temp << [arr[n], arr[n+1]]
+	n = n + 2
+  end
+  #转为两两一对的数组的数组
+  
+  hash = Hash.new(0)
+  temp.each do |key, value|
+    hash[key] = value
+  end
+  #转为散列
+
+  #hash.delete_if{|key,val| key == nil}	#如果前面arr.length里出错，这里可能会多出一项键值均为空值，到时就要用到这一行了
+
+  return hash
+end
+
+p str2hash("blue 蓝色 white 白色 \nred 红色 ")
