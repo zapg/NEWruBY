@@ -1,0 +1,24 @@
+
+# 题目1
+/^(.*)@(.*)$/ =~ "812929004@qq.com"
+
+p $1
+p $2
+
+# 题目2
+p "正则表达式真难啊，怎么这么难懂！".gsub(/难懂/, '易懂').gsub(/真难/, '真简单')
+
+# 题目3
+def word_capitalize(words)
+  words1 = words.downcase
+  words2 = words1.sub(/^./) do |matched|
+    matched.upcase
+  end
+  words3 = words2.gsub(/-./) do |matched|
+    matched.upcase
+  end
+  p words3
+end
+
+word_capitalize("in-reply-to")
+word_capitalize("X-MAILER")
