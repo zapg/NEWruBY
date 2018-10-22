@@ -11,7 +11,7 @@
 def two_sum(nums, target)
   nums.length.times do |first|
     if second = nums.index(target - nums[first])
-      if nums[first] != nums[second]
+      if first != second
         return [first, second]
       end
     end
