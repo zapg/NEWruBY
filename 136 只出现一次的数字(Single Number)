@@ -1,0 +1,9 @@
+def single_number(nums)
+  
+  uniq = nums.uniq
+  nums_sum = uniq_sum = 0
+  nums.each {|num| nums_sum += num}
+  uniq.each {|num| uniq_sum += num}
+  return (uniq_sum * 2 - nums_sum)
+
+end
