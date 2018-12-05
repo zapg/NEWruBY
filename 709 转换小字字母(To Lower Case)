@@ -1,0 +1,8 @@
+def to_lower_case(str)
+  result = ""
+  str.each_char do |char|
+    char.downcase! if (char.to_s < "Z")
+	result += char
+  end
+  puts result
+end
